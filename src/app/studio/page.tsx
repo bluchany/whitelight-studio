@@ -637,7 +637,7 @@ export default function StudioPage() {
                                 </div>
 
                                 <p className="text-sm md:text-base leading-relaxed text-neutral-300 mb-8 font-light italic border-l-2 border-neutral-600 pl-4">
-                                    "{LOBBY.description}"
+                                    &quot;{LOBBY.description}&quot;
                                 </p>
 
                                 <div className="flex-1">

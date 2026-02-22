@@ -14,7 +14,6 @@ export default function Header() {
     // Determine if the current page should have a dark header text (light background pages)
     const isLightThemePage = pathname === "/class" || pathname === "/works" || pathname === "/contact" || pathname.startsWith("/crew");
     const headerTextColor = isLightThemePage ? "text-black" : "text-white mix-blend-difference";
-    const navItemColor = isLightThemePage ? "text-neutral-500 hover:text-black" : "text-neutral-300 hover:text-white";
 
     useEffect(() => {
         const handleScroll = () => {

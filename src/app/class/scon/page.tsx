@@ -27,7 +27,7 @@ export default function ClassDetailPage() {
 
                     <h2 className="text-sm font-bold tracking-[0.3em] text-neutral-500 uppercase mb-4">VOCAL CLASS</h2>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-black mb-6 break-keep">
-                        "내 안의 진짜 목소리를 찾는 여정"
+                        &quot;내 안의 진짜 목소리를 찾는 여정&quot;
                     </h1>
 
                     <div className="flex flex-col items-center space-y-2">
