@@ -9,11 +9,11 @@ export default function Hero() {
             <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
                 {/* Background Image / Logo */}
                 <div
-                    className="absolute inset-0 z-0 opacity-60 bg-contain bg-center bg-no-repeat"
-                    style={{ backgroundImage: "url('/images/studio_logo.jpg')" }}
+                    className="absolute inset-0 z-0 opacity-100 bg-contain bg-center bg-no-repeat scale-150 md:scale-125"
+                    style={{ backgroundImage: "url('/images/studio_logo_2.png')" }}
                 />
 
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-transparent to-black" />
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
                 {/* Scroll indicator */}
                 <motion.div

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -45,10 +45,49 @@ export default function Header() {
                             <Instagram strokeWidth={1.5} size={24} />
                         </a>
                         <button
-                            className={`z-50 hover:opacity-60 transition-opacity ${isMenuOpen ? "text-white" : headerTextColor}`}
+                            className={`z-50 hover:opacity-60 transition-opacity flex items-center justify-center ${isMenuOpen ? "text-white" : headerTextColor}`}
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            aria-label="Toggle menu"
                         >
-                            {isMenuOpen ? <X size={34} strokeWidth={1.5} /> : <Menu size={34} strokeWidth={1.5} />}
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <motion.path
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    animate={isMenuOpen ? "open" : "closed"}
+                                    initial={false}
+                                    variants={{
+                                        closed: { d: "M 4 6 L 20 6" },
+                                        open: { d: "M 6 18 L 18 6" }
+                                    }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                />
+                                <motion.path
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    d="M 4 12 L 20 12"
+                                    animate={isMenuOpen ? "open" : "closed"}
+                                    initial={false}
+                                    variants={{
+                                        closed: { opacity: 1 },
+                                        open: { opacity: 0 }
+                                    }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                />
+                                <motion.path
+                                    stroke="currentColor"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    animate={isMenuOpen ? "open" : "closed"}
+                                    initial={false}
+                                    variants={{
+                                        closed: { d: "M 4 18 L 20 18" },
+                                        open: { d: "M 6 6 L 18 18" }
+                                    }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                />
+                            </svg>
                         </button>
                     </div>
                 </div>

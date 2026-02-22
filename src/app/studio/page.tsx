@@ -192,8 +192,8 @@ export default function StudioPage() {
                     transition={{ duration: 1 }}
                     className="relative z-10 text-center"
                 >
-                    <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-4">
-                        SERVICES
+                    <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+                        STUDIO
                     </h1>
                     <p className="text-sm md:text-base text-neutral-400 tracking-widest uppercase">
                         Recording • Mixing • Mastering • Outsourcing
