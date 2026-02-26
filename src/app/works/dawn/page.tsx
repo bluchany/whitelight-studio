@@ -1,8 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8 }
+    }
+};
 
 export default function DawnPage() {
     return (
@@ -84,21 +101,177 @@ export default function DawnPage() {
 
             {/* Credits Section */}
             <section className="bg-white pb-24 pt-8 md:pt-16 border-t-0">
-                <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-xs md:text-sm">
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">All Composed & lyrics by</span>슬</div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
+                >
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            음반 정보
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">All Composed & Lyrics by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">1. intro : 편지</span>Composed & Arranged by 슬,조서현<br />Piano by 조서현</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">2. 연서</span>Arranged by 슬<br />Vocal by 슬<br />Piano by 조서현</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">3. 새벽의 틈</span>Arranged by 슬<br />Vocal by 슬<br />Nylon Guitar by Scon</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">4. 구와 담</span>Arranged by 슬<br />Vocal by 슬<br />Chorus by 윤형준,슬<br />Acoustic Guitar by Scon,슬<br />Electric Guitar by 백승빈</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">5. 그늘</span>Arranged by 슬,삼월생<br />Vocal by 슬<br />Chorus by 삼월생,슬<br />Nylon Guitar by Scon<br />Acoustic Guitar by 슬<br />Synth by Scon<br />Bass by Scon<br />Flute & oboe by 삼월생</div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            1. intro : 편지
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Composed & Arranged by</span>
+                                <span className="text-neutral-800 break-keep">슬, 조서현</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Piano by</span>
+                                <span className="text-neutral-800 break-keep">조서현</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Mixing & Mastering</span>Scon at White Light Sound</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Recording Engineer</span>오승환 at White light studio(track1,2)<br />Scon at White light sound (track2,3,4,5)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Artwork by</span>지극히 <a href="https://instagram.com/jigueki" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@jigueki</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Profile Photo by</span>김서연,삼월생</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Visual Marketing by</span>김서연</div>
-                </div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            2. 연서
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Piano by</span>
+                                <span className="text-neutral-800 break-keep">조서현</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            3. 새벽의 틈
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Nylon Guitar by</span>
+                                <span className="text-neutral-800 break-keep">Scon</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            4. 구와 담
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Chorus by</span>
+                                <span className="text-neutral-800 break-keep">윤형준, 슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Acoustic Guitar by</span>
+                                <span className="text-neutral-800 break-keep">Scon, 슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Electric Guitar by</span>
+                                <span className="text-neutral-800 break-keep">백승빈</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            5. 그늘
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">슬, 삼월생</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Chorus by</span>
+                                <span className="text-neutral-800 break-keep">삼월생, 슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Nylon Guitar by</span>
+                                <span className="text-neutral-800 break-keep">Scon</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Acoustic Guitar by</span>
+                                <span className="text-neutral-800 break-keep">슬</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Synth by</span>
+                                <span className="text-neutral-800 break-keep">Scon</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Bass by</span>
+                                <span className="text-neutral-800 break-keep">Scon</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Flute & Oboe by</span>
+                                <span className="text-neutral-800 break-keep">삼월생</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Staff Credits
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Mixing & Mastering</span>
+                                <span className="text-neutral-800 break-keep">Scon at White Light Sound</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Recording Engineer</span>
+                                <span className="text-neutral-800 break-keep">오승환 at White light studio(track1,2)<br />Scon at White light sound (track2,3,4,5)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Artwork by</span>
+                                <span className="text-neutral-800 break-keep flex gap-1">지극히 <a href="https://instagram.com/jigueki" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@jigueki</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Profile Photo by</span>
+                                <span className="text-neutral-800 break-keep">김서연, 삼월생</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Visual Marketing by</span>
+                                <span className="text-neutral-800 break-keep">김서연</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <Footer />

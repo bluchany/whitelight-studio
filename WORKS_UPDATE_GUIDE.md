@@ -50,6 +50,12 @@ Vocal Recording @wl_musicstudio
    - 앨범 커버 이미지는 기존 템플릿의 반응형 쉐도우 및 `hover` 효과(JYP 스타일의 `+` 중앙십자가 오버레이 및 줌인 효과)를 동일하게 부여합니다.
    - 크레딧(`{/* Credits Section */}`) 텍스트 안에 포함된 모든 `@인스타아이디` 요소 역시 하이퍼링크 문법으로 감싸 클릭이 되도록 치환합니다.
    - 상세 페이지 배경 색상은 반드시 완전한 빈 화면(Clean White, `bg-white`)을 유지합니다.
+   - `Release Date` 텍스트 영역은 꾸밈 요소 없는 심플한 `<p>` 태그 스타일(`text-center text-xs md:text-sm text-neutral-500`)을 적용하여 다른 작품들과 일치되게 만듭니다.
+   - **(NEW) 매거진 스타일(Magazine-Style) 크레딧 레이아웃 & 애니메이션 적용:**
+     - 크레딧 최상위 컨테이너는 분할 가능한 `grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16` 구조로 만듭니다.
+     - 각 크레딧 카테고리의 제목(`h4`)은 `text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider` 스타일을 부여합니다.
+     - 역할(Role)과 이름(Name)은 `w-32` 또는 `w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5` 너비를 고정하여 다단 레이아웃을 형성합니다.
+     - `framer-motion`의 `Variants` 기능을 사용하여 Stagger(순차적 페이드업) 애니메이션을 적용합니다. 컨테이너에 `containerVariants`를, 각 크레딧 블록(`motion.div`)에 `itemVariants`를 부여해 부드럽게 나타나도록 구현합니다.
 
 ---
 앞으로도 위 템플릿 하나만 복사해서 쭉- 붙여넣어 주시면, 모든 페이지가 단 한 번의 요청으로 완벽하게 완성됩니다!

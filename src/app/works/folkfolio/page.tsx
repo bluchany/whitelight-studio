@@ -1,10 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export default function WorksPage() {
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8 }
+    }
+};
+
+export default function FolkfolioPage() {
     return (
         <main className="relative bg-white min-h-screen w-full overflow-hidden text-black font-sans">
             <Header />
@@ -79,25 +96,100 @@ export default function WorksPage() {
             </section>
 
             {/* Credits Section */}
+            {/* Credits Section */}
             <section className="bg-white pb-24 pt-8 md:pt-16 border-t-0">
-                <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-xs md:text-sm">
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Project</span>포크폴리오(Folk-Folio)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Lyrics & Composed by</span>김은총</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Arranged by</span>포크폴리오</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Vocal</span>김은총, 백광흠</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Chorus</span>김은총, 백광흠</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">A. Guitar</span>김은총, 박경재</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Keyboard</span>백광흠</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Melodica&Tambourine</span>박경재</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Recording Engineer</span>박경재 <a href="https://instagram.com/이상한작업실" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@이상한작업실</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Mixing & Mastering</span>White Light Studio(오승환) <a href="https://instagram.com/shcord_re" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@shcord_re</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Photography</span>천승환</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Production</span>포크폴리오(Folk-Folio) <a href="https://instagram.com/이상컴퍼니" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@이상컴퍼니</a></div>
-                </div>
-                <div className="max-w-4xl mx-auto px-6 mt-12 text-xs md:text-sm text-neutral-500">
-                    <p className="mb-2 text-neutral-400 uppercase text-[10px] font-bold">Thanks to</p>
-                    <p>“2024 청춘마이크 전라권 쥬스컴퍼니, 촬영팀 바닐라씨, 전보영 매니저, 이상한계절 팬클럽 이데아, 군산시청, 군산에서 함께 노래불렀던 모든 분들”</p>
-                </div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
+                >
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Project Info
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Project</span>
+                                <span className="text-neutral-800 break-keep">포크폴리오(Folk-Folio)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Lyrics & Composed by</span>
+                                <span className="text-neutral-800 break-keep">김은총</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">포크폴리오</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal</span>
+                                <span className="text-neutral-800 break-keep">김은총, 백광흠</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Chorus</span>
+                                <span className="text-neutral-800 break-keep">김은총, 백광흠</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Instruments
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">A. Guitar</span>
+                                <span className="text-neutral-800 break-keep">김은총, 박경재</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Keyboard</span>
+                                <span className="text-neutral-800 break-keep">백광흠</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Melodica & Tambourine</span>
+                                <span className="text-neutral-800 break-keep">박경재</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Staff Credits
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Recording Engineer</span>
+                                <span className="text-neutral-800 break-keep">박경재 <a href="https://instagram.com/이상한작업실" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@이상한작업실</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Mixing & Mastering</span>
+                                <span className="text-neutral-800 break-keep">White Light Studio(오승환) <a href="https://instagram.com/shcord_re" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@shcord_re</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Photography</span>
+                                <span className="text-neutral-800 break-keep">천승환</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Production</span>
+                                <span className="text-neutral-800 break-keep">포크폴리오(Folk-Folio) <a href="https://instagram.com/이상컴퍼니" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@이상컴퍼니</a></span>
+                            </li>
+                        </ul>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Thanks to
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex flex-col">
+                                <span className="text-neutral-800 break-keep leading-loose">
+                                    “2024 청춘마이크 전라권 쥬스컴퍼니, 촬영팀 바닐라씨, 전보영 매니저, 이상한계절 팬클럽 이데아, 군산시청, 군산에서 함께 노래불렀던 모든 분들”
+                                </span>
+                            </li>
+                        </ul>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <Footer />

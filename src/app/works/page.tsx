@@ -10,6 +10,22 @@ import { ChevronUp, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } fro
 // Mock data to demonstrate scalability of the Works page
 const ALBUMS = [
     {
+        id: "letter",
+        title: "글(Letter)",
+        artist: "한동규",
+        date: "2026. 02. 25.",
+        image: "/images/letter_warobaru.jpg",
+        link: "/works/letter"
+    },
+    {
+        id: "firstletter",
+        title: "First Letter",
+        artist: "양민서",
+        date: "2026. 02. 24.",
+        image: "/images/firstlove_yangminseo03.jpg",
+        link: "/works/firstletter"
+    },
+    {
         id: "folkfolio",
         title: "오빠야 강변살자",
         artist: "포크폴리오(Folk-Folio)",
@@ -174,7 +190,7 @@ export default function WorksIndexPage() {
                             className="flex flex-col items-center text-center group"
                         >
                             {/* Album Cover Link */}
-                            <Link href={album.link} className="relative block w-full aspect-square overflow-hidden mb-5 bg-white shadow-xl">
+                            <Link href={album.link} className="relative block w-full aspect-square overflow-hidden mb-5 bg-white border border-neutral-200/60">
                                 <img
                                     src={album.image}
                                     alt={album.title}

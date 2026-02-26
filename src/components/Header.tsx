@@ -12,7 +12,7 @@ export default function Header() {
     const pathname = usePathname();
 
     // Determine if the current page should have a dark header text (light background pages)
-    const isLightThemePage = pathname === "/class" || pathname === "/works" || pathname === "/contact" || pathname.startsWith("/crew");
+    const isLightThemePage = pathname.startsWith("/class") || pathname.startsWith("/works") || pathname === "/contact" || pathname.startsWith("/crew");
     const headerTextColor = isLightThemePage ? "text-black" : "text-white mix-blend-difference";
 
     useEffect(() => {
@@ -104,60 +104,74 @@ export default function Header() {
                         className="fixed inset-0 z-40 bg-black flex flex-col pt-40 pb-32 px-6 lg:px-24 overflow-y-auto"
                     >
                         {/* Top Categories Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32 w-full max-w-7xl mx-auto content-start mt-8">
+                        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[45%_25%_30%] items-start relative mt-12 md:mt-24 gap-y-12">
+                            {/* Connective Line (Desktop Only) */}
+                            <div className="hidden md:block absolute top-[16px] md:top-[18px] left-0 w-full border-t-[1px] border-white/40 z-0 pointer-events-none"></div>
 
                             {/* Category 1 */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-                                className="flex flex-col"
+                                className="flex flex-col relative z-10 pr-4"
                             >
-                                <div className="flex items-center gap-6 mb-8 w-full">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-tight whitespace-nowrap">WHITE LIGHT STUDIO</h3>
-                                    <div className="flex-grow border-t-[1.5px] border-neutral-700/80"></div>
+                                <div className="mb-10 w-max pr-8 md:pr-10 lg:pr-14 bg-black">
+                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap">WHITE LIGHT STUDIO</h3>
                                 </div>
-                                <div className="flex flex-col space-y-4">
-                                    <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide">ABOUT W.L STUDIO</Link>
-                                    <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide">CONTACT</Link>
+                                <div className="flex flex-col space-y-5">
+                                    <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em]">ABOUT W.L STUDIO</Link>
+                                    <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em]">CONTACT</Link>
                                 </div>
                             </motion.div>
 
                             {/* Category 2 */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                                className="flex flex-col"
+                                className="flex flex-col relative z-10 w-max"
                             >
-                                <div className="flex items-center gap-6 mb-8 w-full">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-tight whitespace-nowrap">STUDIO</h3>
-                                    <div className="flex-grow border-t-[1.5px] border-neutral-700/80"></div>
+                                <div className="mb-10 w-[calc(100%+1.5rem)] md:w-[calc(100%+2.5rem)] pr-10 pl-6 md:pl-10 -ml-6 md:-ml-10 bg-black">
+                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap">STUDIO</h3>
                                 </div>
-                                <div className="flex flex-col space-y-4">
-                                    <Link href="/studio#equipment" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">EQUIPMENT</Link>
-                                    <Link href="/studio#membership" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">MEMBERSHIP</Link>
-                                    <Link href="/studio#spaces" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">SPACE</Link>
+                                <div className="flex flex-col space-y-5">
+                                    <Link href="/studio#equipment" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em] uppercase">EQUIPMENT</Link>
+                                    <Link href="/studio#membership" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em] uppercase">MEMBERSHIP</Link>
+                                    <Link href="/studio#spaces" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em] uppercase">SPACE</Link>
                                 </div>
                             </motion.div>
 
+                            {/* Right Empty Spacer */}
+                            <div className="hidden md:block relative z-10"></div>
                         </div>
 
                         {/* Bottom Giant Links */}
                         <motion.div
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-                            className="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 md:gap-16 mt-16 md:mt-24 mb-auto"
+                            className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[45%_25%_30%] items-center mt-16 md:mt-24 mb-auto relative gap-y-12"
                         >
-                            <Link href="/works" onClick={() => setIsMenuOpen(false)} className="flex flex-1 items-center gap-6 w-full group cursor-pointer">
-                                <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-tight whitespace-nowrap">WORKS</span>
-                                <div className="flex-grow border-t-[1.5px] border-neutral-700/80"></div>
-                            </Link>
+                            {/* Connective Line (Desktop Only) */}
+                            <div className="hidden md:block absolute top-[16px] md:top-[18px] left-0 w-full border-t-[1px] border-white/40 z-0 pointer-events-none"></div>
 
-                            <Link href="/crew" onClick={() => setIsMenuOpen(false)} className="flex flex-1 items-center gap-6 w-full group cursor-pointer">
-                                <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-tight whitespace-nowrap">CREW</span>
-                                <div className="flex-grow border-t-[1.5px] border-neutral-700/80"></div>
-                            </Link>
+                            <div className="relative z-10">
+                                <div className="bg-black pr-10 lg:pr-14 w-max">
+                                    <Link href="/works" onClick={() => setIsMenuOpen(false)} className="flex items-center group cursor-pointer">
+                                        <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-widest whitespace-nowrap">WORKS</span>
+                                    </Link>
+                                </div>
+                            </div>
 
-                            <Link href="/class" onClick={() => setIsMenuOpen(false)} className="flex flex-1 items-center gap-6 w-full group cursor-pointer">
-                                <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-tight whitespace-nowrap">CLASS</span>
-                                <div className="flex-grow border-t-[1.5px] border-neutral-700/80"></div>
-                            </Link>
+                            <div className="relative z-10 w-max">
+                                <div className="bg-black pr-10 lg:pr-14 pl-6 md:pl-10 -ml-6 md:-ml-10 w-[calc(100%+1.5rem)] md:w-[calc(100%+2.5rem)]">
+                                    <Link href="/crew" onClick={() => setIsMenuOpen(false)} className="flex items-center group cursor-pointer">
+                                        <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-widest whitespace-nowrap">CREW</span>
+                                    </Link>
+                                </div>
+                            </div>
+
+                            <div className="relative z-10 text-right md:-mr-8">
+                                <div className="bg-black pl-10 lg:pl-14 w-max ml-auto text-right">
+                                    <Link href="/class" onClick={() => setIsMenuOpen(false)} className="flex items-center justify-end group cursor-pointer">
+                                        <span className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-400 transition-colors uppercase tracking-widest whitespace-nowrap">CLASS</span>
+                                    </Link>
+                                </div>
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}

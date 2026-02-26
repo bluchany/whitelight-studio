@@ -1,8 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8 }
+    }
+};
 
 export default function MaskPage() {
     return (
@@ -84,22 +101,85 @@ export default function MaskPage() {
 
             {/* Credits Section */}
             <section className="bg-white pb-24 pt-8 md:pt-16 border-t-0">
-                <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-xs md:text-sm">
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Executive Producer</span>김희준</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Composed by</span>김희준</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Lyrics by</span>김희준</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Arranged by</span>김희준, 오승환</div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
+                >
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Production & Composition
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Executive Producer</span>
+                                <span className="text-neutral-800 break-keep">김희준</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Composed by</span>
+                                <span className="text-neutral-800 break-keep">김희준</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Lyrics by</span>
+                                <span className="text-neutral-800 break-keep">김희준</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged by</span>
+                                <span className="text-neutral-800 break-keep">김희준, 오승환</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Vocal</span>정우</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Bass</span>김희준</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Piano</span>김현지</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">A.Guitar</span>신유철</div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Performance
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal</span>
+                                <span className="text-neutral-800 break-keep">정우</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Bass</span>
+                                <span className="text-neutral-800 break-keep">김희준</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Piano</span>
+                                <span className="text-neutral-800 break-keep">김현지</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">A.Guitar</span>
+                                <span className="text-neutral-800 break-keep">신유철</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Recording</span>White Light Studio</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Recording engineer</span>오승환</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Mixed & Mastered by</span>White Light Studio(오승환) <a href="https://instagram.com/shcord_re" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@shcord_re</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Artwork by</span>이시지</div>
-                </div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Staff Credits
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Recording</span>
+                                <span className="text-neutral-800 break-keep">White Light Studio</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Recording engineer</span>
+                                <span className="text-neutral-800 break-keep">오승환</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Mixed & Mastered by</span>
+                                <span className="text-neutral-800 break-keep">White Light Studio(오승환) <a href="https://instagram.com/shcord_re" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@shcord_re</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Artwork by</span>
+                                <span className="text-neutral-800 break-keep">이시지</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <Footer />

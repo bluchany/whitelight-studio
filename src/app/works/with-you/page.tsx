@@ -1,8 +1,25 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15 }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8 }
+    }
+};
 
 export default function WithYouPage() {
     return (
@@ -73,31 +90,51 @@ export default function WithYouPage() {
                 >
                     <div className="w-[1px] h-12 bg-neutral-300 mb-12"></div>
 
-                    <div className="text-center font-medium leading-relaxed md:leading-loose text-sm md:text-base text-neutral-800 space-y-6 px-4 break-keep">
+                    <div className="text-center font-medium leading-relaxed md:leading-loose text-sm md:text-base text-neutral-600 space-y-6 px-4 break-keep w-full">
                         <p>
                             나의 사랑은 어떤 모양들을 가지고 있다<br />
                             제각기 크고 작은 사랑의 형태들<br />
                             그런 사랑들을 담은 앨범
                         </p>
+                    </div>
 
-                        <div className="text-left max-w-md mx-auto mt-8 space-y-4">
-                            <p><strong>1. 너와</strong><br />너와 함께라면 난 어디까지나</p>
-                            <p><strong>2. 너의 모든 걸 사랑해서인 걸까</strong><br />너는 날 잔혹하게 떠났다<br />그게 슬퍼 늘.</p>
-                            <p><strong>3. 은비야</strong><br />나의 소원은 너가 죽지 않는 거야<br />그래서 같이 소나기를 맞으며 사는 거야</p>
-                            <p><strong>4. 곁</strong><br />언제나 네 곁에 있을게</p>
+                    <div className="w-[1px] h-12 md:h-16 bg-neutral-300 mt-12 mb-12"></div>
+
+                    <div className="flex flex-col items-center justify-center space-y-12 text-sm md:text-base w-full">
+                        <div>
+                            <span className="block font-bold text-neutral-900 mb-2 border-b border-neutral-200 pb-2 px-4 tracking-widest text-center">1. 너와</span>
+                            <p className="text-neutral-500 mt-3 tracking-wide text-center leading-relaxed">너와 함께라면 난 어디까지나</p>
+                        </div>
+                        <div>
+                            <span className="block font-bold text-neutral-900 mb-2 border-b border-neutral-200 pb-2 px-4 tracking-widest text-center">2. 너의 모든 걸 사랑해서인 걸까</span>
+                            <p className="text-neutral-500 mt-3 tracking-wide text-center leading-relaxed">너는 날 잔혹하게 떠났다<br />그게 슬퍼 늘.</p>
+                        </div>
+                        <div>
+                            <span className="block font-bold text-neutral-900 mb-2 border-b border-neutral-200 pb-2 px-4 tracking-widest text-center">3. 은비야</span>
+                            <p className="text-neutral-500 mt-3 tracking-wide text-center leading-relaxed">나의 소원은 너가 죽지 않는 거야<br />그래서 같이 소나기를 맞으며 사는 거야</p>
+                        </div>
+                        <div>
+                            <span className="block font-bold text-neutral-900 mb-2 border-b border-neutral-200 pb-2 px-4 tracking-widest text-center">4. 곁</span>
+                            <p className="text-neutral-500 mt-3 tracking-wide text-center leading-relaxed">언제나 네 곁에 있을게</p>
                         </div>
                     </div>
 
-                    <div className="text-center font-medium leading-relaxed md:leading-loose text-sm text-neutral-500 space-y-6 px-4 break-keep mt-12 bg-neutral-50 p-6 rounded-xl">
-                        <p>
+                    <div className="text-center text-xs md:text-sm text-neutral-500 space-y-8 px-4 break-keep mt-24 pt-16 border-t border-neutral-200 w-full max-w-2xl">
+                        <p className="leading-relaxed md:leading-loose">
                             그냥 노래를 녹음 했다고 피드를 올리고 싶지 않았습니다.<br />
-                            천천히 들어보고 제가 운영하는 스튜디오의 사운드를 진지하게 들어보고, 아티스트의 입장에서 스튜디오를 준비하고 싶었습니다.
+                            천천히 들어보고 제가 운영하는 스튜디오의 사운드를 진지하게 들어보고,<br />
+                            아티스트의 입장에서 스튜디오를 준비하고 싶었습니다.
                         </p>
-                        <p>
-                            n@di의 EP 사랑의형태 전곡(4곡)을 WL Studio에서 Vocal Recording을 진행했습니다. 프로듀서로는 처음 음악을 시작할때 만났던 Scon(민수)가 디렉을 진행해줬습니다.
+                        <p className="leading-relaxed md:leading-loose">
+                            n@di의 EP 사랑의형태 전곡(4곡)을 WL Studio에서 Vocal Recording을 진행했습니다.<br />
+                            프로듀서로는 처음 음악을 시작할때 만났던 Scon(민수)가 디렉을 진행해줬습니다.
                         </p>
-                        <p>
-                            아름답고 따뜻한 곡들의 Recording을 함께 해드릴 수 있어 감사했습니다. n@di의 사랑의형태, 많이 사랑해주세요. 감사합니다.
+                        <p className="leading-relaxed md:leading-loose">
+                            아름답고 따뜻한 곡들의 Recording을 함께 해드릴 수 있어 감사했습니다.<br />
+                            n@di의 사랑의형태, 많이 사랑해주세요. 감사합니다.
+                        </p>
+                        <p className="text-neutral-400 text-[10px] md:text-sm tracking-widest mt-12 mb-4 font-bold">
+                            - White Light Studio
                         </p>
                     </div>
 
@@ -108,19 +145,73 @@ export default function WithYouPage() {
 
             {/* Credits Section */}
             <section className="bg-white pb-24 pt-8 md:pt-16 border-t-0">
-                <div className="max-w-4xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-xs md:text-sm">
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Lyrics</span>n@di(나디)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Composed</span>n@di(나디)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Arranged</span>Bflat(전준)(Track1) , 김재욱(Track2,3,4)</div>
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"
+                >
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Composition & Arrangement
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Lyrics</span>
+                                <span className="text-neutral-800 break-keep">n@di(나디)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Composed</span>
+                                <span className="text-neutral-800 break-keep">n@di(나디)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Arranged</span>
+                                <span className="text-neutral-800 break-keep">Bflat(전준)(Track1), 김재욱(Track2,3,4)</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Guitar</span>김재욱 <a href="https://instagram.com/jay_g_guitar" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@jay_g_guitar</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Piano</span>Bflat(전준)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Synthe</span>Bflat(전준)</div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Instruments
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Guitar</span>
+                                <span className="text-neutral-800 break-keep">김재욱 <a href="https://instagram.com/jay_g_guitar" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@jay_g_guitar</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Piano</span>
+                                <span className="text-neutral-800 break-keep">Bflat(전준)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Synthe</span>
+                                <span className="text-neutral-800 break-keep">Bflat(전준)</span>
+                            </li>
+                        </ul>
+                    </motion.div>
 
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Mixed & Mastered</span>Bflat(전준)(Track1) , Scon(Track2,3,4)</div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Vocal Recording</span><a href="https://instagram.com/boxscon" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors">@boxscon</a> <a href="https://instagram.com/wl_musicstudio" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-500 transition-colors ml-1">@wl_musicstudio</a></div>
-                    <div><span className="block text-neutral-400 mb-1 uppercase text-[10px] font-bold">Artwork</span>n@di(나디)</div>
-                </div>
+                    <motion.div variants={itemVariants}>
+                        <h4 className="text-black font-black uppercase text-sm md:text-base border-b border-neutral-200 pb-2 mb-4 tracking-wider">
+                            Staff Credits
+                        </h4>
+                        <ul className="space-y-2 text-xs md:text-[13px] leading-relaxed">
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Mixed & Mastered</span>
+                                <span className="text-neutral-800 break-keep">Bflat(전준)(Track1), Scon(Track2,3,4)</span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Vocal Recording</span>
+                                <span className="text-neutral-800 break-keep"><a href="https://instagram.com/boxscon" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors">@boxscon</a> <a href="https://instagram.com/wl_musicstudio" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-neutral-800 transition-colors ml-1">@wl_musicstudio</a></span>
+                            </li>
+                            <li className="flex">
+                                <span className="w-40 text-neutral-400 font-bold uppercase tracking-wider text-[10px] pt-0.5">Artwork</span>
+                                <span className="text-neutral-800 break-keep">n@di(나디)</span>
+                            </li>
+                        </ul>
+                    </motion.div>
+                </motion.div>
             </section>
 
             <Footer />
