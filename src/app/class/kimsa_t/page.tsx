@@ -21,7 +21,7 @@ export default function ClassDetailPage() {
                         <img
                             src="/images/KimSA_T.jpg"
                             alt="Instructor Kim Su-an"
-                            className="w-full h-full object-cover grayscale"
+                            className="w-full h-full object-cover"
                         />
                     </div>
 
@@ -95,7 +95,7 @@ export default function ClassDetailPage() {
             </section>
 
             {/* Portfolio Audio Link Banner & CTA */}
-            <section className="bg-neutral-50 py-32 border-t border-black/5">
+            <section className="bg-neutral-50 py-16 border-t border-black/5">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export default function ClassDetailPage() {
                             href="https://on.soundcloud.com/AKa6eWbaRZL2tQhzJX"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-10 py-4 border-2 border-black text-black font-bold tracking-widest text-sm hover:bg-black hover:text-white transition-colors uppercase group mb-24"
+                            className="inline-flex items-center justify-center px-10 py-4 border-2 border-black text-black font-bold tracking-widest text-sm hover:bg-black hover:text-white transition-colors uppercase group mb-16"
                         >
                             작업물 듣기
                             <span className="ml-3 group-hover:translate-x-1 transition-transform">↗</span>
