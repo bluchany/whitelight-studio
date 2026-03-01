@@ -12,6 +12,7 @@ const CLASSES = [
         instructor: "김수안 (Kim Su-an)",
         title: "통기타 맞춤형 레슨 과정",
         image: "/images/KimSA_T.jpg",
+        imagePosition: "object-top",
         link: "/class/kimsa_t",
     },
     {
@@ -20,7 +21,7 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         title: "베이스 맞춤형 레슨 과정",
         image: "/images/Minkc_T.png",
-        imagePosition: "object-[center_20%]",
+        imagePosition: "object-top scale-[1.3] origin-top translate-y-4",
         link: "/class/minkc_t",
     },
     {
@@ -29,7 +30,7 @@ const CLASSES = [
         instructor: "이윤진 (Lee Yun-jin)",
         title: "보컬 맞춤형 레슨 과정",
         image: "/images/LeeYJ_T.jpg",
-        imagePosition: "object-[center_20%]",
+        imagePosition: "object-top",
         link: "/class/leeyj_t",
     }
 ];
@@ -117,7 +118,7 @@ export default function ClassIndexPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                             >
-                                <div className="relative aspect-[4/3] w-full bg-neutral-100 overflow-hidden mb-6 shadow-xl border border-black/5">
+                                <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full bg-neutral-100 overflow-hidden mb-6 shadow-xl border border-black/5">
                                     <img
                                         src={cls.image}
                                         alt={cls.title}

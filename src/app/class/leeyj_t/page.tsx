@@ -21,7 +21,7 @@ export default function ClassDetailPage() {
                         <img
                             src="/images/LeeYJ_T.jpg"
                             alt="Instructor Lee Yun-jin"
-                            className="w-full h-full object-cover object-[center_20%]"
+                            className="w-full h-full object-cover object-top"
                         />
                     </div>
 
