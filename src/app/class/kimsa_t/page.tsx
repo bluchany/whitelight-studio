@@ -41,7 +41,7 @@ export default function ClassDetailPage() {
                         transition={{ duration: 1, delay: 0.2 }}
                         className="w-full lg:w-2/5 flex justify-center lg:justify-end"
                     >
-                        <div className="w-56 h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] bg-neutral-100 rounded-t-full rounded-b-xl overflow-hidden shadow-2xl border-[6px] border-white relative group">
+                        <div className="w-56 h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] bg-neutral-100 rounded-sm overflow-hidden shadow-2xl border-[6px] border-white relative group shrink-0">
                             <img
                                 src="/images/KimSA_T.jpg"
                                 alt="Instructor Kim Su-an"
