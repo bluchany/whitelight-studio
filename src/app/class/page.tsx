@@ -132,12 +132,9 @@ export default function ClassIndexPage() {
                                 {/* Info */}
                                 <div className="flex flex-col flex-grow z-10 relative">
                                     <div className="flex flex-col md:flex-row md:items-baseline mb-2">
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors">
-                                            {cls.title}
-                                        </h3>
-                                        <p className="text-xs md:text-sm font-bold tracking-[0.2em] text-neutral-400 uppercase mt-2 md:mt-0">
+                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors uppercase">
                                             {cls.category}
-                                        </p>
+                                        </h3>
                                     </div>
                                     <p className="text-neutral-600 font-semibold text-sm md:text-lg tracking-wide">
                                         Inst. {cls.instructor}
