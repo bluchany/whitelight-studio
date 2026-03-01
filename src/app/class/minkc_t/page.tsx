@@ -19,7 +19,7 @@ export default function ClassDetailPage() {
                 >
                     <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl mb-8 border-4 border-white">
                         <img
-                            src="/images/Minkc_T.jpg"
+                            src="/images/Minkc_T.png"
                             alt="Instructor Min Kyung-chan"
                             className="w-full h-full object-cover"
                         />

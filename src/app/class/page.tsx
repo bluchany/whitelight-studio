@@ -19,7 +19,7 @@ const CLASSES = [
         category: "BASS GUITAR CLASS",
         instructor: "민경찬 (Min Kyung-chan)",
         title: "베이스 맞춤형 레슨 과정",
-        image: "/images/Minkc_T.jpg",
+        image: "/images/Minkc_T.png",
         link: "/class/minkc_t",
     }
 ];
