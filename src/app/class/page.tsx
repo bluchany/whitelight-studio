@@ -21,7 +21,7 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         title: "베이스 맞춤형 레슨 과정",
         image: "/images/Minkc_T.png",
-        imagePosition: "object-top scale-[1.4] origin-top",
+        imagePosition: "object-top scale-[1.7] origin-top",
         link: "/class/minkc_t",
     },
     {
