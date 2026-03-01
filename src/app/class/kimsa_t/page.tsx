@@ -17,7 +17,7 @@ export default function ClassDetailPage() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center max-w-4xl text-center"
                 >
-                    <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl mb-8 border-4 border-white">
+                    <div className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl mb-8 border-4 border-white">
                         <img
                             src="/images/KimSA_T.jpg"
                             alt="Instructor Kim Su-an"
