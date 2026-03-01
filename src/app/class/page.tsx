@@ -22,6 +22,15 @@ const CLASSES = [
         image: "/images/Minkc_T.png",
         imagePosition: "object-[center_20%]",
         link: "/class/minkc_t",
+    },
+    {
+        id: "vocal-leeyj-t",
+        category: "VOCAL CLASS",
+        instructor: "이윤진 (Lee Yun-jin)",
+        title: "보컬 맞춤형 레슨 과정",
+        image: "/images/LeeYJ_T.jpg",
+        imagePosition: "object-[center_20%]",
+        link: "/class/leeyj_t",
     }
 ];
 
