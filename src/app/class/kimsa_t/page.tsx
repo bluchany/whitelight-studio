@@ -9,31 +9,47 @@ export default function ClassDetailPage() {
         <main className="relative bg-white min-h-screen w-full overflow-hidden text-black font-sans">
             <Header />
 
-            {/* Hero Profile Section */}
-            <section className="pt-40 lg:pt-48 pb-8 px-4 flex flex-col items-center justify-center bg-neutral-50 border-b border-black/5">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center max-w-4xl text-center"
-                >
-                    <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl mb-8 border-4 border-white">
-                        <img
-                            src="/images/KimSA_T.jpg"
-                            alt="Instructor Kim Su-an"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+            {/* Hero Profile Section (Typography First) */}
+            <section className="pt-32 lg:pt-48 pb-16 lg:pb-24 px-4 bg-white border-b border-black/10 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
-                    <h2 className="text-sm font-bold tracking-[0.3em] text-neutral-500 uppercase mb-4">ACOUSTIC GUITAR CLASS</h2>
-                    <h1 className="text-3xl md:text-5xl font-black tracking-tighter text-black mb-6 break-keep">
-                        코드를 넘어,<br className="md:hidden" /> 음악을 이해하는 기타
-                    </h1>
+                    {/* Left: Typography */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col w-full lg:w-3/5 text-center lg:text-left pt-8 lg:pt-0"
+                    >
+                        <h2 className="text-xs md:text-sm font-bold tracking-[0.3em] text-neutral-400 uppercase mb-6 flex items-center justify-center lg:justify-start">
+                            <span className="w-8 h-px bg-neutral-300 mr-4 hidden md:block"></span>
+                            ACOUSTIC GUITAR CLASS
+                        </h2>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-black mb-10 break-keep leading-[1.1]">
+                            코드를 넘어,<br className="md:hidden" /> 음악을 <br className="hidden lg:block lg:pb-2" />이해하는 기타
+                        </h1>
+                        <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4 md:gap-8 mt-2">
+                            <p className="text-xl md:text-2xl font-black tracking-widest text-neutral-800">Inst. 김수안</p>
+                            <span className="hidden md:block w-px h-6 bg-neutral-300"></span>
+                            <p className="text-sm tracking-widest text-neutral-500 font-bold uppercase">1:1 Private & Group Lesson</p>
+                        </div>
+                    </motion.div>
 
-                    <div className="flex flex-col items-center">
-                        <p className="text-xl font-bold tracking-widest">강사 김수안</p>
-                    </div>
-                </motion.div>
+                    {/* Right: Refined Arch Portrait */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                        className="w-full lg:w-2/5 flex justify-center lg:justify-end"
+                    >
+                        <div className="w-56 h-72 md:w-64 md:h-[22rem] lg:w-72 lg:h-[26rem] bg-neutral-100 rounded-t-full rounded-b-xl overflow-hidden shadow-2xl border-[6px] border-white relative group">
+                            <img
+                                src="/images/KimSA_T.jpg"
+                                alt="Instructor Kim Su-an"
+                                className="w-full h-full object-cover object-[center_30%] filter grayscale transition-all duration-700 mix-blend-multiply group-hover:grayscale-0"
+                            />
+                        </div>
+                    </motion.div>
+                </div>
             </section>
 
             {/* Curriculum Section */}

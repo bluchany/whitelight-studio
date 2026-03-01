@@ -105,42 +105,48 @@ export default function ClassIndexPage() {
                     <h2 className="text-2xl md:text-3xl font-black uppercase tracking-widest text-black">Instructors</h2>
                 </div>
 
-                {/* Grid Layout for Classes */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-16 gap-x-6">
+                {/* Editorial List Layout for Classes */}
+                <div className="flex flex-col border-t-2 border-black">
                     {CLASSES.map((cls, index) => (
                         <Link
                             key={cls.id}
                             href={cls.link}
-                            className="group block relative cursor-pointer"
+                            className="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:bg-neutral-50 px-4 md:px-8 transition-colors duration-500 overflow-hidden"
                         >
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                className="flex flex-col md:flex-row md:items-center w-full relative"
                             >
-                                <div className="relative aspect-[3/4] w-full bg-neutral-100 overflow-hidden mb-6 shadow-xl border border-black/5">
+                                {/* Thumbnail */}
+                                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shrink-0 mb-6 md:mb-0 md:mr-10 shadow-lg border-2 border-white relative z-10 bg-white">
                                     <img
                                         src={cls.image}
                                         alt={cls.title}
-                                        className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} transition-all duration-700 filter grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 mix-blend-multiply`}
+                                        className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
                                     />
-
-                                    {/* Subtler Hover Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
-                                        <div className="flex items-center text-white/90 text-[10px] uppercase font-bold tracking-[0.2em] opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">
-                                            <span className="w-8 h-px bg-white/50 mr-3"></span>
-                                            View Details
-                                            <span className="w-8 h-px bg-white/50 ml-3"></span>
-                                        </div>
-                                    </div>
                                 </div>
 
-                                <div className="flex flex-col items-start text-left px-2">
-                                    <p className="text-xs tracking-widest text-neutral-500 mb-2 font-bold select-none">[{cls.category}]</p>
-                                    <h3 className="text-xl md:text-2xl font-black tracking-tighter shrink-0 mb-1">
-                                        {cls.title}
-                                    </h3>
-                                    <p className="text-sm font-semibold text-neutral-600">Inst. {cls.instructor}</p>
+                                {/* Info */}
+                                <div className="flex flex-col flex-grow z-10 relative">
+                                    <div className="flex flex-col md:flex-row md:items-baseline mb-2">
+                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors">
+                                            {cls.title}
+                                        </h3>
+                                        <p className="text-xs md:text-sm font-bold tracking-[0.2em] text-neutral-400 uppercase mt-2 md:mt-0">
+                                            {cls.category}
+                                        </p>
+                                    </div>
+                                    <p className="text-neutral-600 font-semibold text-sm md:text-lg tracking-wide">
+                                        Inst. {cls.instructor}
+                                    </p>
+                                </div>
+
+                                {/* Arrow */}
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-auto md:relative opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:block text-neutral-400">
+                                    <span className="text-4xl font-light">→</span>
                                 </div>
                             </motion.div>
                         </Link>
