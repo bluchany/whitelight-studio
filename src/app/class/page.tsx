@@ -20,6 +20,7 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         title: "베이스 맞춤형 레슨 과정",
         image: "/images/Minkc_T.png",
+        imagePosition: "object-[center_20%]",
         link: "/class/minkc_t",
     }
 ];
@@ -111,7 +112,7 @@ export default function ClassIndexPage() {
                                     <img
                                         src={cls.image}
                                         alt={cls.title}
-                                        className="w-full h-full object-cover transition-all duration-700 filter grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 mix-blend-multiply"
+                                        className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} transition-all duration-700 filter grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 mix-blend-multiply`}
                                     />
 
                                     {/* Subtler Hover Overlay */}
