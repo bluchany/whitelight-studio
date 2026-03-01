@@ -21,7 +21,7 @@ export default function ClassDetailPage() {
                         <img
                             src="/images/Minkc_T.png"
                             alt="Instructor Min Kyung-chan"
-                            className="w-full h-full object-cover object-[center_15%] scale-[1.7] origin-top"
+                            className="w-full h-full object-cover object-[center_5%] scale-[1.7] origin-top"
                         />
                     </div>
 
