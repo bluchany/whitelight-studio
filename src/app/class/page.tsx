@@ -106,7 +106,7 @@ export default function ClassIndexPage() {
                 </div>
 
                 {/* Grid Layout for Classes */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-16 gap-x-6">
                     {CLASSES.map((cls, index) => (
                         <Link
                             key={cls.id}
@@ -118,7 +118,7 @@ export default function ClassIndexPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                             >
-                                <div className="relative aspect-[3/4] sm:aspect-[4/5] w-full bg-neutral-100 overflow-hidden mb-6 shadow-xl border border-black/5">
+                                <div className="relative aspect-[3/4] w-full bg-neutral-100 overflow-hidden mb-6 shadow-xl border border-black/5">
                                     <img
                                         src={cls.image}
                                         alt={cls.title}
