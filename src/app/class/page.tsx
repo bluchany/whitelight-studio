@@ -1,41 +1,82 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 
+// Consolidated Instructor Data
 const CLASSES = [
     {
         id: "acoustic-kimsa-t",
         category: "ACOUSTIC GUITAR CLASS",
         instructor: "김수안 (Kim Su-an)",
-        title: "통기타 맞춤형 레슨 과정",
         image: "/images/KimSA_T.jpg",
-        imagePosition: "object-top",
-        link: "/class/kimsa_t",
+        imagePosition: "object-[center_30%]",
+        subtitle: "코드를 넘어, 음악을 이해하는 기타",
+        lessonInfo: "1:1 Private & Group Lesson",
+        about: [
+            "취미로 기타를 처음 시작하는 분부터, 노래 반주•CCM 연주•감성 팝 스타일을 완성하고 싶은 분까지.",
+            "7080 포크 감성부터 Kpop•Pop•CCM까지. 세대와 장르를 아우르는 맞춤형 레슨을 제공합니다."
+        ],
+        process: [
+            "기타를 처음 잡는 분도 부담 없이 시작할 수 있도록 기초부터 차근히 안내합니다.",
+            "실전형 코드와 리듬을 통해 바로 '좋은 소리'가 나는 반주를 만듭니다.",
+            "원하는 곡을 수준에 맞게 재편곡하여 음악적 해석을 완성합니다.",
+            "목표 곡을 완주하고 디테일 피드백으로 연주의 완성도를 높입니다."
+        ],
+        portfolioUrl: "https://on.soundcloud.com/AKa6eWbaRZL2tQhzJX",
+        portfolioText: "김수안 강사님의 통기타 연주와 스튜디오 작업물들을 사운드클라우드 채널에서 직접 확인해보세요.",
+        portfolioBtn: "작업물 듣기"
     },
     {
         id: "bass-minkc-t",
         category: "BASS GUITAR CLASS",
         instructor: "민경찬 (Min Kyung-chan)",
-        title: "베이스 맞춤형 레슨 과정",
         image: "/images/Minkc_T.png",
         imagePosition: "object-[center_5%] scale-[1.7] origin-top",
-        link: "/class/minkc_t",
+        subtitle: "리듬과 화성의 중심, 베이스 솔루션",
+        lessonInfo: "1:1 Private & Group Lesson",
+        about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
+        process: ["준비 중입니다."],
+        portfolioUrl: "https://www.youtube.com/watch?v=6D-NeCV4mEY",
+        portfolioText: "민경찬 강사님의 베이스 연주와 작업물들을 유튜브 채널에서 직접 확인해보세요.",
+        portfolioBtn: "영상 보기"
     },
     {
         id: "vocal-leeyj-t",
         category: "VOCAL CLASS",
         instructor: "이윤진 (Lee Yun-jin)",
-        title: "보컬 맞춤형 레슨 과정",
         image: "/images/LeeYJ_T.jpg",
         imagePosition: "object-top",
-        link: "/class/leeyj_t",
+        subtitle: "조금 더 나답게, 조금 더 빛나게",
+        lessonInfo: "1:1 Private & Group Lesson",
+        about: ["노래를 시작하며 내 목소리를 찾고 싶은 분들부터 더 깊은 표현이 필요하신 분들까지, 기본기 위에 나다움을 더합니다."],
+        process: [
+            "나의 상태를 천천히 점검합니다.",
+            "호흡과 발성, 공명등 기본기를 만듭니다.",
+            "가장 자연스러운 톤을 찾아갑니다.",
+            "녹음 수업으로 작은 디테일까지 만들어갑니다."
+        ],
+        portfolioUrl: "https://www.youtube.com/@%EC%9D%B4%EC%A7%84%EC%A7%9C%EC%A7%84%EC%A7%9C",
+        portfolioText: "이윤진 강사님의 보컬 커버와 작업물들을 유튜브 채널에서 직접 확인해보세요.",
+        portfolioBtn: "영상 보기"
     }
 ];
 
 export default function ClassIndexPage() {
+    const [selectedInstructor, setSelectedInstructor] = useState<typeof CLASSES[0] | null>(null);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (selectedInstructor) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => { document.body.style.overflow = "unset"; };
+    }, [selectedInstructor]);
+
     return (
         <main className="relative bg-white min-h-screen w-full overflow-hidden text-black font-sans">
             <Header />
@@ -108,10 +149,10 @@ export default function ClassIndexPage() {
                 {/* Editorial List Layout for Classes */}
                 <div className="flex flex-col border-t-2 border-black">
                     {CLASSES.map((cls, index) => (
-                        <Link
+                        <div
                             key={cls.id}
-                            href={cls.link}
-                            className="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:bg-neutral-50 px-4 md:px-8 transition-colors duration-500 overflow-hidden"
+                            onClick={() => setSelectedInstructor(cls)}
+                            className="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:bg-neutral-50 px-4 md:px-8 transition-colors duration-500 overflow-hidden cursor-pointer"
                         >
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
@@ -124,7 +165,7 @@ export default function ClassIndexPage() {
                                 <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shrink-0 mb-6 md:mb-0 md:mr-10 shadow-lg border-2 border-white relative z-10 bg-white">
                                     <img
                                         src={cls.image}
-                                        alt={cls.title}
+                                        alt={cls.instructor}
                                         className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
                                     />
                                 </div>
@@ -146,7 +187,7 @@ export default function ClassIndexPage() {
                                     <span className="text-4xl font-light">→</span>
                                 </div>
                             </motion.div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
 
@@ -163,6 +204,150 @@ export default function ClassIndexPage() {
             </section>
 
             <Footer />
+
+            {/* Instructor Detail Modal (AnimatePresence) */}
+            <AnimatePresence>
+                {selectedInstructor && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
+                        onClick={() => setSelectedInstructor(null)}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 30, scale: 0.95 }}
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-white w-full max-w-6xl max-h-[90vh] overflow-y-auto overflow-x-hidden rounded-xl shadow-2xl relative flex flex-col"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedInstructor(null)}
+                                className="absolute top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 z-20 w-10 h-10 bg-neutral-100 hover:bg-black text-neutral-500 hover:text-white rounded-full flex items-center justify-center transition-colors"
+                                aria-label="Close modal"
+                            >
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+                            {/* Modal Layout - Split View */}
+                            <div className="flex flex-col lg:flex-row w-full min-h-[60vh] lg:min-h-[70vh]">
+
+                                {/* Left: Typography & Info (White Region) */}
+                                <div className="w-full lg:w-3/5 p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col justify-between order-2 lg:order-1">
+                                    <div>
+                                        {/* Header */}
+                                        <div className="mb-10 sm:mb-12">
+                                            <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase mb-4 sm:mb-6 flex items-center">
+                                                <span className="w-6 sm:w-8 h-px bg-neutral-300 mr-3 sm:mr-4"></span>
+                                                {selectedInstructor.category}
+                                            </h2>
+                                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tighter text-black mb-6 sm:mb-8 leading-[1.2] break-keep">
+                                                {selectedInstructor.subtitle.split(', ').map((line, i, arr) => (
+                                                    <span key={i}>
+                                                        {line}
+                                                        {i < arr.length - 1 && <>,<br className="md:hidden lg:block lg:pb-1" /> </>}
+                                                    </span>
+                                                ))}
+                                            </h1>
+                                            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-2">
+                                                <p className="text-lg sm:text-xl md:text-2xl font-black tracking-widest text-neutral-800">
+                                                    Inst. {selectedInstructor.instructor.split(' ')[0]}
+                                                </p>
+                                                <span className="hidden sm:block w-px h-5 bg-neutral-300"></span>
+                                                <p className="text-[10px] sm:text-xs tracking-[0.2em] text-neutral-500 font-bold uppercase w-full sm:w-auto">
+                                                    {selectedInstructor.lessonInfo}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        {/* About */}
+                                        <div className="mb-10 sm:mb-12">
+                                            <h3 className="text-xs sm:text-sm font-black tracking-widest uppercase text-black mb-4 sm:mb-5 border-l-[3px] border-black pl-3 flex items-center h-4">
+                                                ABOUT LESSON
+                                            </h3>
+                                            <div className="space-y-4">
+                                                {selectedInstructor.about.map((p, i) => (
+                                                    <p key={i} className="text-sm sm:text-[15px] md:text-base text-neutral-700 font-light leading-relaxed break-keep font-pretendard">
+                                                        {p}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        </div>
+
+                                        {/* Process */}
+                                        <div className="mb-8 lg:mb-0">
+                                            <h3 className="text-xs sm:text-sm font-black tracking-widest uppercase text-black mb-4 sm:mb-5 border-l-[3px] border-black pl-3 flex items-center h-4">
+                                                PROCESS
+                                            </h3>
+                                            <div className="space-y-5 sm:space-y-6">
+                                                {selectedInstructor.process.map((step, i) => (
+                                                    <div key={i} className="flex gap-3 sm:gap-5">
+                                                        <div className="text-[10px] font-bold tracking-[0.2em] text-neutral-400 mt-1 shrink-0">0{i + 1}</div>
+                                                        <p className="text-sm sm:text-[15px] md:text-base text-neutral-700 font-light leading-relaxed font-pretendard break-keep">
+                                                            {step}
+                                                        </p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Right: Media & CTA (Gray Region) */}
+                                <div className="w-full lg:w-2/5 bg-neutral-50 p-6 sm:p-10 md:p-12 lg:p-16 flex flex-col items-center border-b lg:border-b-0 lg:border-l border-black/5 order-1 lg:order-2">
+
+                                    {/* Portrait */}
+                                    <div className="w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-72 bg-white rounded-sm overflow-hidden shadow-2xl border-[6px] border-white mb-8 sm:mb-10 shrink-0 relative mt-6 lg:mt-0">
+                                        <img
+                                            src={selectedInstructor.image}
+                                            alt={selectedInstructor.instructor}
+                                            className={`w-full h-full object-cover ${selectedInstructor.imagePosition || 'object-center'} filter grayscale hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
+                                        />
+                                    </div>
+
+                                    {/* Portfolio */}
+                                    <div className="text-center mb-8 sm:mb-12 w-full flex-grow flex flex-col items-center justify-center">
+                                        <h4 className="text-sm sm:text-base font-black tracking-[0.2em] uppercase text-black mb-3">
+                                            Instructor&apos;s Works
+                                        </h4>
+                                        <p className="text-neutral-500 text-[11px] sm:text-xs mb-6 sm:mb-8 break-keep leading-relaxed max-w-xs">
+                                            {selectedInstructor.portfolioText}
+                                        </p>
+                                        <a
+                                            href={selectedInstructor.portfolioUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-[10px] sm:text-xs border border-black text-black font-bold tracking-[0.2em] hover:bg-black hover:text-white transition-colors uppercase group"
+                                        >
+                                            {selectedInstructor.portfolioBtn}
+                                            <span className="ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform">↗</span>
+                                        </a>
+                                    </div>
+
+                                    {/* CTA Bottom Button */}
+                                    <div className="w-full pt-6 sm:pt-8 border-t border-black/10 mt-auto">
+                                        <a
+                                            href="https://map.naver.com/p/entry/place/1935361517?placePath=/ticket?selectedReview=6993d71a9654b90f984b4b64&selectedReview=6993d71a9654b90f984b4b64&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202602220831&locale=ko&svcName=map_pcv5&searchType=place&lng=127.0841546&lat=37.5660654&c=15.00,0,0,0,dh"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block w-full px-6 sm:px-8 py-4 sm:py-5 bg-black text-white font-bold tracking-[0.2em] text-[10px] sm:text-xs hover:bg-neutral-800 transition-colors uppercase text-center"
+                                        >
+                                            수강 안내 및 신청 ↗
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </main>
     );
 }
