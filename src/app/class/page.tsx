@@ -12,9 +12,10 @@ const CLASSES = [
         category: "ACOUSTIC GUITAR CLASS",
         instructor: "김수안 (Kim Su-an)",
         image: "/images/KimSA_T.jpg",
+        bgImage: "/images/Kim_SA_T_N.png",
         imagePosition: "object-[center_30%]",
         bgScale: "h-[180%]",
-        bgPosition: "right-0 md:-right-12 top-1/2 -translate-y-[40%]",
+        bgPosition: "right-0 md:right-24 top-1/2 -translate-y-[40%]",
         subtitle: "코드를 넘어, 음악을 이해하는 기타",
         lessonInfo: "1:1 Private & Group Lesson",
         about: [
@@ -36,9 +37,10 @@ const CLASSES = [
         category: "BASS GUITAR CLASS",
         instructor: "민경찬 (Min Kyung-chan)",
         image: "/images/Minkc_T.png",
+        bgImage: "/images/Minkc_T_N.png",
         imagePosition: "object-top",
-        bgScale: "h-[260%]",
-        bgPosition: "-right-10 md:-right-24 top-1/2 -translate-y-[35%]",
+        bgScale: "h-[220%]",
+        bgPosition: "right-10 md:right-24 top-1/2 -translate-y-[35%]",
         subtitle: "리듬과 화성의 중심, 베이스 솔루션",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
@@ -52,9 +54,10 @@ const CLASSES = [
         category: "VOCAL CLASS",
         instructor: "이윤진 (Lee Yun-jin)",
         image: "/images/LeeYJ_T.jpg",
+        bgImage: "/images/LeeYJ_T_N.png",
         imagePosition: "object-top",
-        bgScale: "h-[170%]",
-        bgPosition: "right-0 md:-right-10 top-1/2 -translate-y-[30%]",
+        bgScale: "h-[180%]",
+        bgPosition: "right-0 md:right-24 top-1/2 -translate-y-[35%]",
         subtitle: "조금 더 나답게, 조금 더 빛나게",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["노래를 시작하며 내 목소리를 찾고 싶은 분들부터 더 깊은 표현이 필요하신 분들까지, 기본기 위에 나다움을 더합니다."],
@@ -169,7 +172,7 @@ export default function ClassIndexPage() {
                                 className="absolute top-0 right-0 w-full md:w-2/3 h-full z-0 opacity-15 group-hover:opacity-30 transition-opacity duration-1000 pointer-events-none overflow-hidden"
                                 style={{ WebkitMaskImage: 'linear-gradient(to left, black 20%, transparent 80%)', maskImage: 'linear-gradient(to left, black 20%, transparent 80%)' }}
                             >
-                                <img src={cls.image} alt="" className={`absolute ${cls.bgPosition} ${cls.bgScale} max-w-none w-auto filter grayscale mix-blend-multiply`} />
+                                <img src={cls.bgImage || cls.image} alt="" className={`absolute ${cls.bgPosition} ${cls.bgScale} max-w-none w-auto filter grayscale mix-blend-multiply`} />
                             </div>
 
                             <div className="py-10 md:py-12 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between relative z-10 w-full">
