@@ -34,14 +34,14 @@ const CLASSES = [
         category: "BASS GUITAR CLASS",
         instructor: "민경찬 (Min Kyung-chan)",
         image: "/images/Minkc_T.png",
-        imagePosition: "object-[center_5%] scale-[1.7] origin-top",
+        imagePosition: "object-top",
         subtitle: "리듬과 화성의 중심, 베이스 솔루션",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
         process: ["준비 중입니다."],
         portfolioUrl: "https://www.youtube.com/watch?v=6D-NeCV4mEY",
         portfolioText: "민경찬 강사님의 베이스 연주와 작업물들을 유튜브 채널에서 직접 확인해보세요.",
-        portfolioBtn: "영상 보기"
+        portfolioBtn: "작업물 보기"
     },
     {
         id: "vocal-leeyj-t",
@@ -60,7 +60,7 @@ const CLASSES = [
         ],
         portfolioUrl: "https://www.youtube.com/@%EC%9D%B4%EC%A7%84%EC%A7%9C%EC%A7%84%EC%A7%9C",
         portfolioText: "이윤진 강사님의 보컬 커버와 작업물들을 유튜브 채널에서 직접 확인해보세요.",
-        portfolioBtn: "영상 보기"
+        portfolioBtn: "작업물 보기"
     }
 ];
 
@@ -258,10 +258,6 @@ export default function ClassIndexPage() {
                                             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-2">
                                                 <p className="text-lg sm:text-xl md:text-2xl font-black tracking-widest text-neutral-800">
                                                     Inst. {selectedInstructor.instructor.split(' ')[0]}
-                                                </p>
-                                                <span className="hidden sm:block w-px h-5 bg-neutral-300"></span>
-                                                <p className="text-[10px] sm:text-xs tracking-[0.2em] text-neutral-500 font-bold uppercase w-full sm:w-auto">
-                                                    {selectedInstructor.lessonInfo}
                                                 </p>
                                             </div>
                                         </div>
