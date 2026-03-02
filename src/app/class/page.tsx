@@ -13,6 +13,7 @@ const CLASSES = [
         instructor: "김수안 (Kim Su-an)",
         image: "/images/KimSA_T.jpg",
         imagePosition: "object-[center_30%]",
+        bgImage: "/images/bg_acoustic.png",
         subtitle: "코드를 넘어, 음악을 이해하는 기타",
         lessonInfo: "1:1 Private & Group Lesson",
         about: [
@@ -35,6 +36,7 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         image: "/images/Minkc_T.png",
         imagePosition: "object-top",
+        bgImage: "/images/bg_bass.png",
         subtitle: "리듬과 화성의 중심, 베이스 솔루션",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
@@ -49,6 +51,7 @@ const CLASSES = [
         instructor: "이윤진 (Lee Yun-jin)",
         image: "/images/LeeYJ_T.jpg",
         imagePosition: "object-top",
+        bgImage: "/images/bg_vocal.png",
         subtitle: "조금 더 나답게, 조금 더 빛나게",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["노래를 시작하며 내 목소리를 찾고 싶은 분들부터 더 깊은 표현이 필요하신 분들까지, 기본기 위에 나다움을 더합니다."],
@@ -149,47 +152,56 @@ export default function ClassIndexPage() {
                 {/* Editorial List Layout for Classes */}
                 <div className="flex flex-col border-t-2 border-black">
                     {CLASSES.map((cls, index) => (
-                        <div
+                        <motion.li
                             key={cls.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            className="group border-b border-black/10 cursor-pointer relative overflow-hidden bg-white hover:bg-neutral-50 transition-colors duration-700 list-none"
                             onClick={() => setSelectedInstructor(cls)}
-                            className="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-black/10 hover:bg-neutral-50 px-4 md:px-8 transition-colors duration-500 overflow-hidden cursor-pointer"
                         >
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className="flex flex-col md:flex-row md:items-center w-full relative"
+                            {/* Atmospheric Background Image (Right side) */}
+                            <div
+                                className="absolute top-0 right-0 w-2/3 md:w-1/2 h-full z-0 opacity-30 group-hover:opacity-60 transition-opacity duration-1000 pointer-events-none"
+                                style={{ WebkitMaskImage: 'linear-gradient(to left, black 0%, transparent 100%)', maskImage: 'linear-gradient(to left, black 0%, transparent 100%)' }}
                             >
-                                <div
-                                    className="w-20 sm:w-24 md:w-28 aspect-[3/4] rounded-sm overflow-hidden bg-neutral-100 flex-shrink-0 relative group cursor-pointer border-[3px] border-white shadow-md z-20 mb-6 md:mb-0 md:mr-10"
-                                    onClick={() => setSelectedInstructor(cls)}
-                                >
-                                    <img
-                                        src={cls.image}
-                                        alt={cls.instructor}
-                                        className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
-                                    />
-                                </div>
+                                <img src={cls.bgImage} alt={`${cls.category} background`} className="w-full h-full object-cover filter grayscale mix-blend-multiply" />
+                            </div>
 
-                                {/* Info */}
-                                <div className="flex flex-col flex-grow z-10 relative">
-                                    <div className="flex flex-col md:flex-row md:items-baseline mb-2">
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors uppercase">
-                                            {cls.category}
-                                        </h3>
+                            <div className="py-10 md:py-12 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between relative z-10 w-full">
+
+                                {/* Left Content */}
+                                <div className="flex flex-col md:flex-row md:items-center w-full relative">
+                                    <div
+                                        className="w-20 sm:w-24 md:w-28 aspect-[3/4] rounded-sm overflow-hidden bg-neutral-100 flex-shrink-0 relative group cursor-pointer border-[3px] border-white shadow-md z-20 mb-6 md:mb-0 md:mr-10"
+                                    >
+                                        <img
+                                            src={cls.image}
+                                            alt={cls.instructor}
+                                            className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
+                                        />
                                     </div>
-                                    <p className="text-neutral-600 font-semibold text-sm md:text-lg tracking-wide">
-                                        Inst. {cls.instructor}
-                                    </p>
-                                </div>
 
-                                {/* Arrow */}
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-auto md:relative opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:block text-neutral-400">
-                                    <span className="text-4xl font-light">→</span>
+                                    {/* Info */}
+                                    <div className="flex flex-col flex-grow z-10 relative">
+                                        <div className="flex flex-col md:flex-row md:items-baseline mb-2">
+                                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors uppercase">
+                                                {cls.category}
+                                            </h3>
+                                        </div>
+                                        <p className="text-neutral-600 font-semibold text-sm md:text-lg tracking-wide">
+                                            Inst. {cls.instructor}
+                                        </p>
+                                    </div>
+
+                                    {/* Arrow */}
+                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 md:translate-y-0 md:top-auto md:relative opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 hidden md:block text-neutral-400">
+                                        <span className="text-4xl font-light">→</span>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        </div>
+                            </div>
+                        </motion.li>
                     ))}
                 </div>
 
