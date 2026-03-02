@@ -13,6 +13,7 @@ const CLASSES = [
         instructor: "김수안 (Kim Su-an)",
         image: "/images/KimSA_T.jpg",
         imagePosition: "object-[center_30%]",
+        listImagePosition: "object-top scale-[0.85] translate-y-2",
         subtitle: "코드를 넘어, 음악을 이해하는 기타",
         lessonInfo: "1:1 Private & Group Lesson",
         about: [
@@ -35,6 +36,7 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         image: "/images/Minkc_T.png",
         imagePosition: "object-top",
+        listImagePosition: "object-top scale-[1.2] translate-y-1",
         subtitle: "리듬과 화성의 중심, 베이스 솔루션",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
@@ -49,6 +51,7 @@ const CLASSES = [
         instructor: "이윤진 (Lee Yun-jin)",
         image: "/images/LeeYJ_T.jpg",
         imagePosition: "object-top",
+        listImagePosition: "object-[center_20%] scale-[0.85] translate-y-2",
         subtitle: "조금 더 나답게, 조금 더 빛나게",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["노래를 시작하며 내 목소리를 찾고 싶은 분들부터 더 깊은 표현이 필요하신 분들까지, 기본기 위에 나다움을 더합니다."],
@@ -166,7 +169,7 @@ export default function ClassIndexPage() {
                                     <img
                                         src={cls.image}
                                         alt={cls.instructor}
-                                        className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
+                                        className={`w-full h-full object-cover ${cls.listImagePosition || cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
                                     />
                                 </div>
 
@@ -303,7 +306,7 @@ export default function ClassIndexPage() {
                                         <img
                                             src={selectedInstructor.image}
                                             alt={selectedInstructor.instructor}
-                                            className={`w-full h-full object-cover ${selectedInstructor.imagePosition || 'object-center'} filter grayscale hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
+                                            className={`w-full h-full object-cover ${selectedInstructor.imagePosition || 'object-center'} mix-blend-multiply`}
                                         />
                                     </div>
 
