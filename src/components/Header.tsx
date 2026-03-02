@@ -114,7 +114,9 @@ export default function Header() {
                                 className="flex flex-col relative z-10 pr-4"
                             >
                                 <div className="mb-10 w-max pr-8 md:pr-10 lg:pr-14 bg-black">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap">WHITE LIGHT STUDIO</h3>
+                                    <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                                        <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap hover:text-neutral-400 transition-colors">WHITE LIGHT STUDIO</h3>
+                                    </Link>
                                 </div>
                                 <div className="flex flex-col space-y-5">
                                     <Link href="/#about" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em]">ABOUT W.L STUDIO</Link>
@@ -128,7 +130,9 @@ export default function Header() {
                                 className="flex flex-col relative z-10 w-max"
                             >
                                 <div className="mb-10 w-[calc(100%+1.5rem)] md:w-[calc(100%+2.5rem)] pr-10 pl-6 md:pl-10 -ml-6 md:-ml-10 bg-black">
-                                    <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap">STUDIO</h3>
+                                    <Link href="/studio" onClick={() => setIsMenuOpen(false)}>
+                                        <h3 className="text-white text-xl md:text-2xl font-bold uppercase tracking-widest whitespace-nowrap hover:text-neutral-400 transition-colors">STUDIO</h3>
+                                    </Link>
                                 </div>
                                 <div className="flex flex-col space-y-5">
                                     <Link href="/studio#equipment" onClick={() => setIsMenuOpen(false)} className="text-neutral-400 hover:text-white transition-colors text-[15px] font-medium tracking-[0.15em] uppercase">EQUIPMENT</Link>
