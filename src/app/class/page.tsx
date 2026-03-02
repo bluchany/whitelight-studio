@@ -13,7 +13,6 @@ const CLASSES = [
         instructor: "김수안 (Kim Su-an)",
         image: "/images/KimSA_T.jpg",
         imagePosition: "object-[center_30%]",
-        bgImage: "/images/bg_acoustic.png",
         subtitle: "코드를 넘어, 음악을 이해하는 기타",
         lessonInfo: "1:1 Private & Group Lesson",
         about: [
@@ -36,7 +35,6 @@ const CLASSES = [
         instructor: "민경찬 (Min Kyung-chan)",
         image: "/images/Minkc_T.png",
         imagePosition: "object-top",
-        bgImage: "/images/bg_bass.png",
         subtitle: "리듬과 화성의 중심, 베이스 솔루션",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["레슨 소개 내용은 추후 업데이트될 예정입니다."],
@@ -51,7 +49,6 @@ const CLASSES = [
         instructor: "이윤진 (Lee Yun-jin)",
         image: "/images/LeeYJ_T.jpg",
         imagePosition: "object-top",
-        bgImage: "/images/bg_vocal.png",
         subtitle: "조금 더 나답게, 조금 더 빛나게",
         lessonInfo: "1:1 Private & Group Lesson",
         about: ["노래를 시작하며 내 목소리를 찾고 싶은 분들부터 더 깊은 표현이 필요하신 분들까지, 기본기 위에 나다움을 더합니다."],
@@ -161,12 +158,12 @@ export default function ClassIndexPage() {
                             className="group border-b border-black/10 cursor-pointer relative overflow-hidden bg-white hover:bg-neutral-50 transition-colors duration-700 list-none"
                             onClick={() => setSelectedInstructor(cls)}
                         >
-                            {/* Atmospheric Background Image (Right side) */}
+                            {/* Atmospheric Background Image (Right side - Using Instructor's Photo) */}
                             <div
-                                className="absolute top-0 right-0 w-2/3 md:w-1/2 h-full z-0 opacity-30 group-hover:opacity-60 transition-opacity duration-1000 pointer-events-none"
-                                style={{ WebkitMaskImage: 'linear-gradient(to left, black 0%, transparent 100%)', maskImage: 'linear-gradient(to left, black 0%, transparent 100%)' }}
+                                className="absolute top-0 right-0 w-full md:w-2/3 h-full z-0 opacity-15 group-hover:opacity-30 transition-opacity duration-1000 pointer-events-none overflow-hidden"
+                                style={{ WebkitMaskImage: 'linear-gradient(to left, black 0%, transparent 80%)', maskImage: 'linear-gradient(to left, black 0%, transparent 80%)' }}
                             >
-                                <img src={cls.bgImage} alt={`${cls.category} background`} className="w-full h-full object-cover filter grayscale mix-blend-multiply" />
+                                <img src={cls.image} alt="" className="absolute top-1/2 -translate-y-[35%] right-0 md:right-12 h-[280%] w-auto filter grayscale blur-[2px] mix-blend-multiply" />
                             </div>
 
                             <div className="py-10 md:py-12 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between relative z-10 w-full">
