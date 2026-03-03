@@ -247,28 +247,28 @@ export default function ClassIndexPage() {
                                 <img src={cls.bgImage || cls.image} alt="" className={`absolute ${cls.bgPosition} ${cls.bgScale} max-w-none w-auto filter grayscale mix-blend-multiply`} />
                             </div>
 
-                            <div className="py-10 md:py-12 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between relative z-10 w-full">
+                            <div className="py-8 md:py-12 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between relative z-10 w-full">
 
                                 {/* Left Content */}
-                                <div className="flex flex-col md:flex-row md:items-center w-full relative">
+                                <div className="flex flex-col md:flex-row items-center md:items-center w-full relative text-center md:text-left">
                                     <div
-                                        className="w-20 sm:w-24 md:w-28 aspect-[3/4] rounded-sm overflow-hidden bg-neutral-100 flex-shrink-0 relative group cursor-pointer border-[3px] border-white shadow-md z-20 mb-6 md:mb-0 md:mr-10"
+                                        className="w-32 sm:w-40 md:w-28 aspect-[3/4] rounded-sm overflow-hidden bg-neutral-100 flex-shrink-0 relative group cursor-pointer border-[3px] border-white shadow-md z-20 mb-6 md:mb-0 md:mr-10"
                                     >
                                         <img
                                             src={cls.image}
                                             alt={cls.instructor}
-                                            className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mix-blend-multiply`}
+                                            className={`w-full h-full object-cover ${cls.imagePosition || 'object-center'} filter grayscale group-hover:grayscale-0 transition-all duration-700 mx-auto block mix-blend-multiply`}
                                         />
                                     </div>
 
                                     {/* Info */}
-                                    <div className="flex flex-col flex-grow z-10 relative">
+                                    <div className="flex flex-col flex-grow z-10 relative md:ml-0 md:items-start items-center">
                                         <div className="flex flex-col md:flex-row md:items-baseline mb-2">
-                                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter mr-6 group-hover:text-black text-neutral-800 transition-colors uppercase">
+                                            <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black tracking-tighter md:mr-6 group-hover:text-black text-neutral-800 transition-colors uppercase">
                                                 {cls.category}
                                             </h3>
                                         </div>
-                                        <p className="text-neutral-600 font-semibold text-sm md:text-lg tracking-wide">
+                                        <p className="text-neutral-600 font-semibold text-base md:text-lg tracking-wide">
                                             Inst. {cls.instructor}
                                         </p>
                                     </div>
